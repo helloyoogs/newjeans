@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Page Not Found</title>
+</head>
+<body>
+<script>
+    // GitHub Pages에서 404.html 페이지에 접근하면, index.html 파일로 리디렉션합니다.
+    // Vue Router의 history mode를 사용하면 URL에 해시 기호(#)가 없으므로, index.html 파일로 리디렉션되도록 설정합니다.
+    window.location.replace("/<repository-name>/index.html");
+</script>
+</body>
+</html>
