@@ -6,6 +6,7 @@ import MovingPhotos from './components/MovingPhotos.vue';
 import boost from './components/boost.vue';
 import images from './components/images.vue';
 import App from "@/App.vue";
+import NotFound from './components/NotFound.vue'; // NotFound 컴포넌트 import
 
 
 const router = createRouter({
@@ -42,7 +43,11 @@ const router = createRouter({
             path: "/newjeans/boost/images",
             component: images,
         },
-
+        // 404 페이지
+        {
+            path: "/:catchAll(.*)",
+            component: NotFound,
+        },
     ]
 });
 

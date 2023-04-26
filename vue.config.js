@@ -1,5 +1,15 @@
-const { defineConfig } = require('@vue/cli-service')
-module.exports = defineConfig({
-  transpileDependencies: true,
-  publicPath: '/newjeans/'
-})
+module.exports = {
+  publicPath: '/newjeans/',
+  outputDir: 'dist',
+  assetsDir: 'static',
+  indexPath: 'index.html',
+  filenameHashing: true,
+  devServer: {
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/newjeanst/, to: '/newjeans/index.html' },
+        { from: /./, to: '/newjeans/index.html' },
+      ],
+    },
+  },
+};
