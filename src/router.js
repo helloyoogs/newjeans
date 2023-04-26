@@ -9,8 +9,7 @@ import App from "@/App.vue";
 
 
 const router = createRouter({
-    mode: "history",
-    history: createWebHistory(),
+    history: createWebHistory(process.env.BASE_URL),
     routes: [
         {
             path: '/',
@@ -43,6 +42,7 @@ const router = createRouter({
             path: "/newjeans/boost/images",
             component: images,
         },
+
     ]
 });
 
