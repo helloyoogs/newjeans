@@ -7,41 +7,40 @@ import boost from './components/boost.vue';
 import images from './components/images.vue';
 
 
-
 const router = createRouter({
-  mode: "history",
-  history: createWebHistory(),
-  routes: [
-      {
-          path: '/',
-          redirect: '/newjeans' // '/' 경로로 접근 시 '/newjeans' 경로로 리다이렉트
-      },
-    {
-      path: "/newjeans",
-      component: MainLoad,
-    },
-  
+    mode: "history",
+    history: createWebHistory(),
+    routes: [
         {
-          path: "/newjeans/id-card",
-          component: IdCard,
+            path: '/',
+            redirect: '/newjeans' // '/' 경로로 접근 시 '/newjeans' 경로로 리다이렉트
         },
         {
-          path: "/newjeans/main",
-          component: main,
+            path: "/newjeans",
+            component: MainLoad,
+        },
+
+        {
+            path: "/newjeans/id-card",
+            component: IdCard,
         },
         {
-          path: "/newjeans/moving-photos",
-          component: MovingPhotos,
+            path: "/newjeans/main",
+            component: main,
         },
         {
-          path: "/newjeans/boost",
-          component: boost,
+            path: "/newjeans/moving-photos",
+            component: MovingPhotos,
         },
         {
-          path: "/newjeans/boost/images",
-          component: images,
+            path: "/newjeans/boost",
+            component: boost,
         },
-      ]
+        {
+            path: "/newjeans/boost/images",
+            component: images,
+        },
+    ]
 });
 
 export default router; 
