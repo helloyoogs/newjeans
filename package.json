@@ -2,7 +2,6 @@
   "name": "newjeans",
   "version": "0.1.0",
   "private": true,
-  "start": "webpack-dev-server --inline --content-base . --history-api-fallback",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
