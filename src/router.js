@@ -13,7 +13,9 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-            redirect: '/newjeans' // '/' 경로로 접근 시 '/newjeans' 경로로 리다이렉트
+            redirect: '/newjeans', // '/' 경로로 접근 시 '/newjeans' 경로로 리다이렉트
+            component: MainLoad
+
         },
         {
             path: "/newjeans",
