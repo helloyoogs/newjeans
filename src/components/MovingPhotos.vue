@@ -7,20 +7,20 @@
 
           <div class="content-bg">
             <div class="slide slide_wrap">
-              <div class="slide_item">
-                <img :src="무빙민지[이미지넘버].img" alt="무빙민지" @mousemove="mousemove">
+              <div class="slide_item"  draggable="true" >
+                <img :src="무빙민지[이미지넘버].img" alt="무빙민지"  @dragover="handleDrag" draggable="true" />
               </div>
-              <div class="slide_item">
-                <img :src="무빙하니[이미지넘버].img" alt="무빙하니" @mousemove="mousemove">
+              <div class="slide_item"  draggable="true" >
+                <img :src="무빙하니[이미지넘버].img" alt="무빙하니"   @dragover="handleDrag" draggable="true" />
               </div>
-              <div class="slide_item">
-                <img :src="무빙대니얼[이미지넘버].img" alt="무빙대니얼" @mousemove="mousemove">
+              <div class="slide_item"  draggable="true" >
+                <img :src="무빙대니얼[이미지넘버].img" alt="무빙대니얼" @dragover="handleDrag" draggable="true" />
               </div>
-              <div class="slide_item">
-                <img :src="무빙해린[이미지넘버].img" alt="무빙해린" @mousemove="mousemove">
+              <div class="slide_item"  draggable="true" >
+                <img :src="무빙해린[이미지넘버].img" alt="무빙해린" @dragover="handleDrag" draggable="true" />
               </div>
-              <div class="slide_item">
-                <img :src="무빙해인[이미지넘버].img" alt="무빙해인" @mousemove="mousemove">
+              <div class="slide_item"  draggable="true" >
+                <img :src="무빙해인[이미지넘버]?.img" alt="무빙해인"   @dragover="handleDrag" draggable="true" />
               </div>
               <div class="slide_prev_button slide_button"></div>
               <div class="slide_next_button slide_button"></div>
@@ -28,10 +28,10 @@
 
             <div class="popup" v-if="팝업쇼 == 0">
               <ul>
-                <li><img src="../assets/movingphotos/arrow.png" alt="arrow"></li>
-                <li><img src="../assets/movingphotos/hand.png" alt="hand"></li>
-                <li>위아래로 화면은 쓸어넘기면 <br>
-                  다른 멤버의 사진을 볼수있어요 <br> <br>
+                <li><img src="../assets/movingphotos/arrow.png" alt="arrow">
+                  <img src="../assets/movingphotos/hand.png" alt="hand"></li>
+                <li>양 옆으로 드래그하면 해당 멤버의  <br>
+                  사진을 움짤처럼 볼수 있어요<br> <br>
                   Swipe up and down to see <br>
                   photos of the other members. <br>
                 </li>
@@ -71,12 +71,14 @@ export default {
   },
   methods: {
 
-    mousemove(e) {
-      setTimeout(() => {
+    handleDrag(e) {
         e.preventDefault();
-        this.이미지넘버 = e.offsetX;
-      }, -1000000)
-
+        const width = e.target.offsetWidth;
+        const x = e.offsetX;
+        const ratio = x / width;
+        const totalImages = this[e.target.alt].length;
+        const index = Math.floor(ratio * totalImages);
+        this.이미지넘버 = index;
     }
 
   }, // Method End
@@ -149,50 +151,6 @@ created() {
     // 브라우저 화면이 조정될 때 마다 slideWidth를 변경하기 위해
     window.addEventListener("resize", () => {
       slideHeight = slide.clientHeight;
-    });
-
-
-    // 드래그(스와이프) 이벤트를 위한 변수 초기화
-    let startPoint = 0;
-    let endPoint = 0;
-
-    // PC 클릭 이벤트 (드래그)
-    slide.addEventListener("mousedown", (e) => {
-      console.log("mousedown", e.pageY);
-      startPoint = e.pageY; // 마우스 드래그 시작 위치 저장
-    });
-
-    slide.addEventListener("mouseup", (e) => {
-      console.log("mouseup", e.pageY);
-      endPoint = e.pageY; // 마우스 드래그 끝 위치 저장
-      if (startPoint < endPoint) {
-        // 마우스가 오른쪽으로 드래그 된 경우
-        console.log("prev move");
-        prevMove();
-      } else if (startPoint > endPoint) {
-        // 마우스가 왼쪽으로 드래그 된 경우
-        console.log("next move");
-        nextMove();
-      }
-    });
-
-    // 모바일 터치 이벤트 (스와이프)
-    slide.addEventListener("touchstart", (e) => {
-      console.log("touchstart", e.touches[0].pageY);
-      startPoint = e.touches[0].pageY; // 터치가 시작되는 위치 저장
-    });
-    slide.addEventListener("touchend", (e) => {
-      console.log("touchend", e.changedTouches[0].pageY);
-      endPoint = e.changedTouches[0].pageY; // 터치가 끝나는 위치 저장
-      if (startPoint < endPoint) {
-        // 오른쪽으로 스와이프 된 경우
-        console.log("prev move");
-        prevMove();
-      } else if (startPoint > endPoint) {
-        // 왼쪽으로 스와이프 된 경우
-        console.log("next move");
-        nextMove();
-      }
     });
   },
 } //default End
@@ -304,10 +262,10 @@ li {
 .popup>ul {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   height: 100%;
   align-items: center;
-  justify-content: center;
+  gap: 10px;
 }
 
 .popup>ul>li {
@@ -317,8 +275,14 @@ li {
   line-height: 14px;
 }
 
-.popup>ul>li:nth-child(1) img {
-  width: 12px;
+.popup>ul>li:nth-child(1){
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup>ul>li img:nth-child(1) {
+  width: 47px;
 }
 
 .popup>ul>li:nth-child(3) {
