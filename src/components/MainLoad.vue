@@ -46,7 +46,7 @@ methods: {
 },
         mounted() {
     setTimeout(() => {
-    location.href='/#/newjeans/main';
+    location.href='/newjeans/#/main';
     }, 3000);  
     }
 

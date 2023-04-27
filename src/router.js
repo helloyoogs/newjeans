@@ -18,23 +18,23 @@ const router = createRouter({
     },
   
         {
-          path: "/newjeans/id-card",
+          path: "/id-card",
           component: IdCard,
         },
         {
-          path: "/newjeans/main",
+          path: "/main",
           component: main,
         },
         {
-          path: "/newjeans/moving-photos",
+          path: "/moving-photos",
           component: MovingPhotos,
         },
         {
-          path: "/newjeans/boost",
+          path: "/boost",
           component: boost,
         },
         {
-          path: "/newjeans/boost/images",
+          path: "/boost/images",
           component: images,
         },
       ]
