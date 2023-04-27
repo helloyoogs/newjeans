@@ -28,7 +28,7 @@ export default {
       var audio = new Audio(require('../assets/main/sound-2.mp3'));
       audio.play();
       setTimeout(() => {
-        location.href = '/newjeans/main';
+        location.href = '/#/newjeans/main';
       }, 1000)
     },
 updateNow(){

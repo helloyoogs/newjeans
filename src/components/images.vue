@@ -49,7 +49,7 @@ mounted() {
       var audio = new Audio(require('../assets/main/sound-2.mp3'));
       audio.play();
       setTimeout(() => {
-        location.href = '/newjeans/boost';
+        location.href = '/#/newjeans/boost';
       }, 1000)
     },
         images_slide() {

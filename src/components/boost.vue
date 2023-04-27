@@ -77,7 +77,7 @@ boosts_btn:false,
     var audio = new Audio(require('../assets/main/sound-2.mp3'));
         audio.play();
     setTimeout(() => {
-    location.href='/newjeans/boost';
+    location.href='/#/newjeans/boost';
   },1000)
   },
   go_images_click(){
@@ -85,7 +85,7 @@ boosts_btn:false,
         audio.play();
         this.boosts_btn = true;
     setTimeout(() => {
-    location.href='/newjeans/boost/images';
+    location.href='/#/newjeans/boost/images';
   },1000)
   }
   }, // Method End

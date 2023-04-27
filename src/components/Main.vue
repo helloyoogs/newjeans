@@ -134,7 +134,7 @@ export default {
         audio.play();
     this.아이디카드클릭 = 1;
     setTimeout(() => {
-    location.href='/newjeans/id-card';
+    location.href='/#/newjeans/id-card';
     }, 1000)
 
   },
@@ -143,7 +143,7 @@ export default {
         audio.play();
     this.무빙포토클릭 = 1;
     setTimeout(() => {
-    location.href='/newjeans/moving-photos';
+    location.href='/#/newjeans/moving-photos';
     }, 1000)
   },
   twitter_click(){
@@ -171,7 +171,7 @@ export default {
     var audio = new Audio(require('../assets/main/sound-2.mp3'));
         audio.play();
     setTimeout(() => {
-    location.href='/newjeans/boost';
+    location.href='/#/newjeans/boost';
   },1000)
   },
   }
