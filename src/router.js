@@ -5,7 +5,6 @@ import MainLoad from './components/MainLoad.vue';
 import MovingPhotos from './components/MovingPhotos.vue';
 import boost from './components/boost.vue';
 import images from './components/images.vue';
-import App from "@/App.vue";
 
 
 
@@ -13,14 +12,8 @@ const router = createRouter({
   mode: "history",
   history: createWebHashHistory(),
   routes: [
-      {
-          path: '/',
-          redirect: '/newjeans', // '/' 경로로 접근 시 '/newjeans' 경로로 리다이렉트,
-          component: App,
-
-      },
     {
-      path: "/newjeans",
+      path: "/",
       component: MainLoad,
     },
   
