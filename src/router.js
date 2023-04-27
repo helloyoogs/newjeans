@@ -10,7 +10,7 @@ import images from './components/images.vue';
 
 const router = createRouter({
   mode: "history",
-  history: createWebHashHistory('/newjeans/#/'),
+  history: createWebHashHistory('/newjeans/'),
   routes: [
     {
       path: "/",
